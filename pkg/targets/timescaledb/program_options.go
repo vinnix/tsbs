@@ -27,6 +27,11 @@ type LoadingOptions struct {
 	TimeIndex          bool   `yaml:"time-index" mapstructure:"time-index"`
 	TimePartitionIndex bool   `yaml:"time-partition-index" mapstructure:"time-partition-index"`
 	PartitionIndex     bool   `yaml:"partition-index" mapstructure:"partition-index"`
+
+	NativePartitions   bool   `yaml:"native-partitions" mapstructure:"native-partitions"`
+	NativePartitionsTimeStart  string  `yaml:"start-time" mapstructure:"start-time"`
+	NativePartitionsTimeEnd    string  `yaml:"end-time" mapstructure:"end-time"`
+
 	FieldIndex         string `yaml:"field-index" mapstructure:"field-index"`
 	FieldIndexCount    int    `yaml:"field-index-count" mapstructure:"field-index-count"`
 

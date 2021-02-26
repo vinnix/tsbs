@@ -65,4 +65,8 @@ func (t *timescaleTarget) TargetSpecificFlags(flagPrefix string, flagSet *pflag.
 	flagSet.Bool(flagPrefix+"create-metrics-table", true, "Drops existing and creates new metrics table. Can be used for both regular and hypertable")
 
 	flagSet.Bool(flagPrefix+"force-text-format", false, "Send/receive data in text format")
+
+    flagSet.Bool(flagPrefix+"native-partitions", false, "Whether to use or not native partitions. Requies use-hypertable as false.")
+    flagSet.String(flagPrefix+"time-start", "2020-01-01T00:00:00Z", "Beginning timestamp (RFC3339).")
+    flagSet.String(flagPrefix+"time-end", "2020-01-02T00:00:00Z", "Ending timestamp (RFC3339).")
 }
