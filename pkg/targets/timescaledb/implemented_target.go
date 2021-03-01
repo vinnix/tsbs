@@ -69,4 +69,5 @@ func (t *timescaleTarget) TargetSpecificFlags(flagPrefix string, flagSet *pflag.
     flagSet.Bool(flagPrefix+"native-partitions", false, "Whether to use or not native partitions. Requies use-hypertable as false.")
     flagSet.String(flagPrefix+"time-start", "2020-01-01T00:00:00Z", "Beginning timestamp (RFC3339).")
     flagSet.String(flagPrefix+"time-end", "2020-01-02T00:00:00Z", "Ending timestamp (RFC3339).")
+    flagSet.String(flagPrefix+"native-partitions-interval", "2 hours", "Interval for each pre-created partition")
 }

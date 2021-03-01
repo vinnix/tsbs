@@ -57,6 +57,7 @@ func initProgramOptions() (*timescaledb.LoadingOptions, load.BenchmarkRunner, *l
     opts.NativePartitions = viper.GetBool("native-partitions")
     opts.NativePartitionsTimeStart = viper.GetString("time-start")
     opts.NativePartitionsTimeEnd = viper.GetString("time-end")
+    opts.NativePartitionsInterval = viper.GetString("native-partitions-interval")
 
 	opts.ProfileFile = viper.GetString("write-profile")
 	opts.ReplicationStatsFile = viper.GetString("write-replication-stats")

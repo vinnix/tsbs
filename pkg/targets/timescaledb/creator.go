@@ -158,7 +158,7 @@ func (d *dbCreator) createFunctionToGeneratePartitions(dbBench *sql.DB) {
 		CREATE OR REPLACE FUNCTION gen_partitions( ptable     TEXT
                                                  , p_ts_start TEXT DEFAULT '2016-01-01T00:00:00Z'
                                                  , p_ts_end   TEXT DEFAULT '2016-01-04T00:00:00Z'
-                                                 , p_interval INTERVAL  DEFAULT '2 hours'
+                                                 , p_interval INTERVAL DEFAULT '2 hours'
                                                )
 		RETURNS void
 		LANGUAGE PLPGSQL
@@ -167,7 +167,7 @@ func (d *dbCreator) createFunctionToGeneratePartitions(dbBench *sql.DB) {
 		DECLARE
                 start_time         timestamp     := to_timestamp(p_ts_start, 'YYYY-MM-DDTHH24:MI:SSZ') ;
   				end_time           timestamp     := to_timestamp(p_ts_end,   'YYYY-MM-DDTHH24:MI:SSZ') ;
-  				partition_size     interval      := p_interval;
+                partition_size     interval      := p_interval;
 		
   				next_range_start   timestamp     := start_time;
   				next_range_limit   timestamp     := start_time + partition_size;
@@ -239,7 +239,7 @@ func (d *dbCreator) createTableAndIndexes(dbBench *sql.DB, tableName string, fie
 
     // TODO: Call Native parition code
     if d.opts.NativePartitions {
-        MustExec(dbBench,fmt.Sprintf("SELECT gen_partitions('%s','%s','%s')", tableName, d.opts.NativePartitionsTimeStart, d.opts.NativePartitionsTimeEnd))
+        MustExec(dbBench,fmt.Sprintf("SELECT gen_partitions('%s','%s','%s','%s')", tableName, d.opts.NativePartitionsTimeStart, d.opts.NativePartitionsTimeEnd, d.opts.NativePartitionsInterval))
     }
 
 	if d.opts.UseHypertable {
