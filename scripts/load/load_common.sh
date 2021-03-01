@@ -4,10 +4,6 @@
 DATABASE_HOST=${DATABASE_HOST:-"localhost"}
 DATABASE_NAME=${DATABASE_NAME:-"benchmark"}
 
-# Start and stop time for generated timeseries
-TS_START=${TS_START:-"2016-01-01T00:00:00Z"}
-TS_END=${TS_END:-"2016-01-04T00:00:00Z"}
-
 # Data folder
 BULK_DATA_DIR=${BULK_DATA_DIR:-"/tmp/bulk_data"}
 # Full path to data file
